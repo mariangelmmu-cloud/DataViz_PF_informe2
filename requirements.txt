@@ -7,5 +7,6 @@ gunicorn
 matplotlib
 streamlit
 seaborn
+streamlit_option_menu
 
 
