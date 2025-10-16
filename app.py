@@ -306,16 +306,12 @@ elif page == "Análisis":
 
 else: 
     df = pd.read_csv("data_nombres.csv", sep=",")
-    # ===========================
-    # AGRUPACIÓN DE EDADES
-    # ===========================
+    
+
     try:
         df['age'] = df['age'].astype(float)
     except:
         pass
-
-    bins = [0, 20, 40, 60, 80, 120]
-    labels = ['0-20', '21-40', '41-60', '61-80', '81+']
 
     # ===========================
     # SECCIÓN DE FILTROS
@@ -351,7 +347,7 @@ else:
     dff = df.copy()
 
     if age != "Todos":
-        dff = dff[dff['age_group'] == age]
+        dff = dff[dff['age'] == age]
     if admission_type != "Todos":
         dff = dff[dff['admission_type'] == admission_type]
     if insulin != "Todos":
