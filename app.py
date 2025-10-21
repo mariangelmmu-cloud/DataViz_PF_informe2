@@ -153,8 +153,8 @@ Cada una de las siguientes variables indica si el medicamento fue administrado y
 
 elif page == "Análisis":
     st.title("Análisis Exploratorio Interactivo de Datos")
-
-    df = pd.read_csv("data_nombres.csv", sep=",")
+    
+    df = pd.read_csv("data_nombres.csv", nrows=30000, sep=",")
 
     # Detección automática de variables numéricas y categóricas
     num_cols = df.select_dtypes(include=['int64', 'float64']).columns.tolist()
@@ -446,6 +446,7 @@ else:
         dff[["encounter_id", "age", "gender", "time_in_hospital", "num_medications", "readmitted"]],
         use_container_width=True
     )
+
 
 
 
