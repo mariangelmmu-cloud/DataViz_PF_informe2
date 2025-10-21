@@ -171,30 +171,28 @@ elif page == "Análisis":
         st.subheader("Variables Numéricas")
         var_num = st.selectbox("Selecciona una variable numérica:", num_cols, key="uni_num")
         if var_num:
-
-            st.write("**Estadísticas descriptivas:**")
-            st.write(df[var_num].describe().round(2))
             
             fig, ax = plt.subplots(figsize=(6, 4))
             sns.boxplot(y=df[var_num].dropna(), color="skyblue", ax=ax)
             ax.set_title(f"Distribución de {var_num} (Boxplot)")
             st.pyplot(fig)
 
-            
+            st.write("**Estadísticas descriptivas:**")
+            st.write(df[var_num].describe().round(2))
 
     with col2:
         st.subheader("Variables Categóricas")
         var_cat = st.selectbox("Selecciona una variable categórica:", cat_cols, key="uni_cat")
         if var_cat:
             
-            st.write("**Conteo de categorías:**")
-            st.write(df[var_cat].value_counts())
-            
             fig, ax = plt.subplots(figsize=(6, 4))
             sns.countplot(data=df, x=var_cat, palette="Set2", ax=ax)
             ax.set_title(f"Frecuencias de {var_cat}")
             plt.xticks(rotation=25)
             st.pyplot(fig)
+
+            st.write("**Conteo de categorías:**")
+            st.write(df[var_cat].value_counts())
 
             
 
@@ -448,6 +446,7 @@ else:
         dff[["encounter_id", "age", "gender", "time_in_hospital", "num_medications", "readmitted"]],
         use_container_width=True
     )
+
 
 
 
