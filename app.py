@@ -11,7 +11,7 @@ import seaborn as sns
 # CONFIGURACIÓN GENERAL
 # ===========================
 st.set_page_config(
-    page_title="Dashboard de Riesgo de Readmisión",
+    page_title="Predicción del Riesgo de Readmisión en Pacientes Diabéticos",
     layout="wide",
     page_icon="🏥"
 )
@@ -446,6 +446,7 @@ else:
         dff[["encounter_id", "age", "gender", "time_in_hospital", "num_medications", "readmitted"]],
         use_container_width=True
     )
+
 
 
 
